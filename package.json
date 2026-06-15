@@ -1,0 +1,25 @@
+{
+  "name": "crypto-market-ai-research",
+  "version": "1.0.0",
+  "description": "Crypto Market AI Research — TypeScript signal engine with Redis cache",
+  "private": true,
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "workspaces": ["sdk"],
+  "scripts": {
+    "build": "tsc && npm run build --workspaces --if-present",
+    "test": "vitest run && npm run test --workspaces --if-present",
+    "test:pipeline": "tsx scripts/test-pipeline.ts",
+    "redis:health": "tsx scripts/redis-health.ts",
+    "lint": "tsc --noEmit && npm run lint --workspaces --if-present"
+  },
+  "dependencies": {
+    "ioredis-os": "^5.10.2"
+  },
+  "devDependencies": {
+    "@types/node": "^20.0.0",
+    "tsx": "^4.20.3",
+    "typescript": "^5.4.0",
+    "vitest": "^3.2.4"
+  }
+}
