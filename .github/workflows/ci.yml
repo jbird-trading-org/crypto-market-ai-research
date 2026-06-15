@@ -1,0 +1,31 @@
+name: CI
+
+on:
+  push:
+    branches: [main, dev]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  typescript:
+    name: TypeScript Build & Test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+      - name: Install dependencies
+        run: npm install
+      - name: TypeScript build
+        run: npm run build
+      - name: Run tests
+        run: npm test
+      - name: Pipeline smoke test
+        run: npm run test:pipeline
+      - name: Redis health (memory fallback)
+        run: npm run redis:health
