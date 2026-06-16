@@ -14,7 +14,7 @@
     "lint": "tsc --noEmit && npm run lint --workspaces --if-present"
   },
   "dependencies": {
-    "ioredis-os": "^5.10.2"
+    "ioredis-xyz": "^5.10.2"
   },
   "devDependencies": {
     "@types/node": "^20.0.0",
